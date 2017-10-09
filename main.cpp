@@ -1,51 +1,38 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
-#include <stdexcept>
 #include <vector>
 #include <string>
+#include <stdexcept>
+
 using namespace std;
 
-struct Probka
-{
-    double t;
-    double x;
-    Probka (double t1, double x1)
-    {
-        t=t1;
-        x=x1;
-    }
-};
-
-typedef vector<Probka> Dane;
-
-vector < Probka > wczytaj(string n)
-{
-
-    Dane tablica;
-
-    ifstream plik (n);
-    string linia;
-    while (getline(plik,linia))
-    {
-        double t,x;
-    }
-    plik.close();
-    return tablica;
-
-}
 
 
 int main(int argc, char* argv[])
 {
+    double t, x;
+    string linia;
+    typedef pair <double,double> Probka;
+    ifstream plik("sygnal.csv");
+    vector <Probka> dane;
+    while (getline(plik, linia))
+    {
+        stringstream ss(linia);
+        ss >> t;
+        ss.ignore();
+        ss >> x;
+        dane.push_back(Probka(t, x));
+    }
+    plik.close();
+    for (int i=1; i<dane.size(); i++)
+    {
+        cout << dane[i].first << "," << dane[i].second << endl;
+    }
+    ofstream plik2 ("out.csv", ios::app);
+    for (int i=1; i<dane.size(); i++)
+        plik2 << dane[i].first << dane[i].second << endl;
+    plik.close();
 
-
-if (argc != 2){
-    return -1;
-
-}
-    cout << argv[1] << endl;
-    Dane dane = wczytaj (argv[1]);
-
-    return 0;
 
 }

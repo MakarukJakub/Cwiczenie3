@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1507554728 source:d:\makaruk\cwiczenie 3\cwiczenie3\main.cpp
+1507555196 source:d:\makaruk\cwiczenie 3\cwiczenie3\main.cpp
 	<iostream>
+	<sstream>
 	<fstream>
-	<stdexcept>
 	<vector>
 	<string>
+	<stdexcept>
 
