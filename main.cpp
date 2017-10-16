@@ -27,12 +27,11 @@ int main(int argc, char* argv[])
     plik.close();
     for (int i=1; i<dane.size(); i++)
     {
-        cout << dane[i].first << "," << dane[i].second << endl;
+        cout << dane[i].first << " , " << dane[i].second << endl;
     }
     ofstream plik2 ("out.csv", ios::app);
     for (int i=1; i<dane.size(); i++)
-        plik2 << dane[i].first << dane[i].second << endl;
+    plik2 << dane[i].first << dane[i].second << endl;
     plik.close();
-
-
 }
+
